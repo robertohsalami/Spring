@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Produto {
@@ -16,9 +17,10 @@ public class Produto {
 	private int id;
 
 	private String titulo;
+	@Lob
 	private String descricao;
-	private String paginas;
-	
+	private int paginas;
+
 	@ElementCollection
 	private List<Preco> precos;
 
@@ -46,20 +48,20 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public String getPaginas() {
-		return paginas;
-	}
-
-	public void setPaginas(String paginas) {
-		this.paginas = paginas;
-	}
-
 	public List<Preco> getPrecos() {
 		return precos;
 	}
 
 	public void setPrecos(List<Preco> precos) {
 		this.precos = precos;
+	}
+
+	public int getPaginas() {
+		return paginas;
+	}
+
+	public void setPaginas(int paginas) {
+		this.paginas = paginas;
 	}
 
 	@Override
