@@ -29,6 +29,8 @@ public class Produto {
 	@ElementCollection
 	private List<Preco> precos;
 
+	private String sumarioPath;
+
 	public int getId() {
 		return id;
 	}
@@ -69,6 +71,14 @@ public class Produto {
 		this.dataLancamento = dataLancamento;
 	}
 
+	public String getSumarioPath() {
+		return sumarioPath;
+	}
+
+	public void setSumarioPath(String sumarioPath) {
+		this.sumarioPath = sumarioPath;
+	}
+
 	public int getPaginas() {
 		return paginas;
 	}
@@ -79,7 +89,8 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "Produto [titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas + ", data lançamento=" + dataLancamento + "]";
+		return "Produto [titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas + ", data lançamento="
+				+ dataLancamento + "]";
 	}
 
 }

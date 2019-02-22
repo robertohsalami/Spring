@@ -8,6 +8,8 @@ import org.springframework.format.datetime.DateFormatter;
 import org.springframework.format.datetime.DateFormatterRegistrar;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -62,6 +64,15 @@ public class AppWebConfiguration {
 		registrar.registerFormatters(conversionService);
 		
 		return conversionService;
+	}
+	
+	/**
+	 * Configuração para que o form consiga submeter arquivos. Esses arquivos no caso serao salvos no servidor
+	 * @return
+	 */
+	@Bean
+	public MultipartResolver multipartResolver() {
+		return new StandardServletMultipartResolver();
 	}
 
 }
